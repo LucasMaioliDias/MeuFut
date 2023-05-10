@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".view.FormLogin">
+
+    <View
+        android:id="@+id/conteiner"
+        style="@style/containercomponents"
+        android:layout_marginTop="550px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.391" />
+
+    <EditText
+        style="@style/edit_text"
+        android:id="@+id/txtUsuario"
+        app:layout_constraintStart_toStartOf="@+id/conteiner"
+        app:layout_constraintEnd_toEndOf="@+id/conteiner"
+        app:layout_constraintTop_toTopOf="@+id/conteiner"
+        android:hint="Usuario"
+        android:drawableRight="@drawable/ic_user"
+        />
+
+    <EditText
+        style="@style/edit_text"
+        android:id="@+id/txtSenhaLogin"
+        app:layout_constraintStart_toStartOf="@+id/conteiner"
+        app:layout_constraintEnd_toEndOf="@+id/conteiner"
+        app:layout_constraintTop_toBottomOf="@+id/txtUsuario"
+        android:hint="Senha"
+        android:drawableRight="@drawable/ic_eye"
+        android:inputType="textPassword"
+        android:imeOptions="actionDone"
+        />
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/button"
+        android:onClick="click"
+        android:text="Entrar"
+        android:textColor="@color/lightgray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtSenhaLogin" />
+
+    <TextView
+        android:id="@+id/lblcadastrese"
+        android:text="Cadastre-se"
+        style="@style/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin"
+        android:onClick="Clickcadastro"/>
+    
+    <ProgressBar
+        android:id="@+id/roberto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:indeterminateTint="@color/white"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblcadastrese"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

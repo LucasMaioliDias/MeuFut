@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 33
+    namespace 'com.trabalho.projetomeufut'
+    compileSdk 33
+    buildToolsVersion "32.0.0"
+
+
+    defaultConfig {
+        applicationId "com.trabalho.projetomeufut"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+
+
+dependencies {
+
+
+    implementation 'com.mikhaellopez:circularimageview:4.3.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'androidx.core:core-ktx:1.10.0'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    implementation 'com.google.firebase:firebase-database-ktx:20.2.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.firebase:firebase-auth:21.0.3'
+    implementation 'com.google.firebase:firebase-firestore:24.1.1'
+    implementation 'com.google.ar.sceneform:filament-android:1.17.1'
+    implementation 'com.google.android.gms:play-services-cast-framework:21.3.0'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
+
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'com.google.android.gms:play-services-gcm:11.8.0'
+        force 'com.google.android.gms:play-services-maps:11.8.0'
+        force 'com.google.android.gms:play-services-location:11.8.0'
+    }
+}

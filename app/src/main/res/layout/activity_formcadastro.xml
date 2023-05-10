@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".view.Formcadastro">
+
+
+    <View
+        android:id="@+id/conteiner2"
+        style="@style/containercomponents2"
+        android:layout_marginTop="550px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.391" />
+
+    <TextView
+        android:id="@+id/lblCadastro"
+        android:text="Cadastro Aluno"
+        style="@style/text"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/conteiner2"
+        app:layout_constraintStart_toStartOf="@id/conteiner2"
+        app:layout_constraintTop_toTopOf="@id/conteiner2"
+        android:padding="10dp"
+        />
+
+    <EditText
+       android:id="@+id/txtNome"
+        style="@style/edit_text"
+        app:layout_constraintEnd_toEndOf="@id/conteiner2"
+        app:layout_constraintStart_toStartOf="@id/conteiner2"
+        app:layout_constraintTop_toBottomOf="@id/lblCadastro"
+        android:hint="Nome"
+        android:drawableRight="@drawable/ic_clipboard"/>
+
+    <EditText
+        android:id="@+id/txtTelefone"
+        style="@style/edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtNome"
+        android:hint="Telefone"
+        android:drawableRight="@drawable/ic_cpf"/>
+
+    <EditText
+        android:id="@+id/txtEmail"
+        style="@style/edit_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTelefone"
+        android:hint="Email"
+        android:drawableRight="@drawable/ic_user"/>
+
+    <EditText
+        android:id="@+id/txtSenha"
+        style="@style/edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtEmail"
+        android:hint="Senha"
+        android:drawableRight="@drawable/ic_eye"/>
+
+    <Button
+        android:id="@+id/btnCadastro"
+        style="@style/button"
+        android:text="cadastro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtSenha"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

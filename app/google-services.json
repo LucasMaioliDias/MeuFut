@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "889824473059",
+    "project_id": "projetomeufut",
+    "storage_bucket": "projetomeufut.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889824473059:android:96dc62e159d5376156bad6",
+        "android_client_info": {
+          "package_name": "com.trabalho.projetomeufut"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889824473059-died053vr1otbgnri4424vithf4aod1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmy6Xo2Y3G57zrszFuS60ulpD2CLRLekM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889824473059-died053vr1otbgnri4424vithf4aod1k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
