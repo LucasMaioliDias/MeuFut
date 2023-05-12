@@ -17,4 +17,6 @@
     <color name="amareloclaro">#FFFB7D</color>
     <color name="azulmaioli">#08AEEA</color>
     <color name="verdegrad">#2AF598</color>
+    <color name="cyangreen">#00a86b</color>
+    <color name="darckcyangreen">#0e8164</color>
 </resources>

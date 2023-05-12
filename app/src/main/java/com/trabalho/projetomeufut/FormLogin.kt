@@ -31,6 +31,7 @@ class FormLogin : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_login)
 
+        supportActionBar?.hide()
 
 
         txtUsuario = findViewById(R.id.txtUsuario)
@@ -90,7 +91,7 @@ class FormLogin : AppCompatActivity() {
                 if (task.isSuccessful) {
                     roberto.visibility = View.VISIBLE
                     Handler().postDelayed({
-                        val joh = Intent(this, quadras::class.java)
+                        val joh = Intent(this,menuQuadra ::class.java)
                         startActivity(joh)
                     }, 3000)
                 }
@@ -98,7 +99,7 @@ class FormLogin : AppCompatActivity() {
     }
 
     private fun navigateToNextScreen() {
-        val joh = Intent(this, quadras::class.java)
+        val joh = Intent(this, MainActivity::class.java)
         startActivity(joh)
         finish() // Finalize a atividade atual para que o usuário não possa voltar para a tela de login usando o botão "Voltar" do dispositivo
     }
