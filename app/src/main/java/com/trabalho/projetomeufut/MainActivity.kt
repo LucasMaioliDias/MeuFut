@@ -7,6 +7,8 @@ import android.os.Looper
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.trabalho.projetomeufut.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,9 +22,42 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.BottomNavigationView)
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.item1 -> {
+                    val intent = Intent(this, quadras::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.item2 -> {
+                    // Ação para o item 2
+                    FirebaseAuth.getInstance().signOut()
+
+                    val intent = Intent(this, FormLogin::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    finish()
+                    true
+                }
+                R.id.item3 -> {
+                    val intent = Intent(this, conta::class.java)
+                    startActivity(intent)
+                    true
+
+                }
+
+                else -> {
+                    true
+                }
+            }
+        }
+
+
+
         initRecyclerView()
-
-
     }
 
     private fun initRecyclerView(){

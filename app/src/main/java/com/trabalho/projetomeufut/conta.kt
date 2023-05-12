@@ -1,20 +1,15 @@
 package com.trabalho.projetomeufut
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.bumptech.glide.Glide
-import com.google.android.gms.cast.framework.media.ImagePicker
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import java.io.File
 import java.io.FileOutputStream
@@ -40,12 +35,22 @@ class conta : AppCompatActivity() {
         txtTelefoneCadastro = findViewById(R.id.txtTelefoneCadastro)
         txtTrocarFoto = findViewById(R.id.txtTrocarFoto)
 
+
+        buttonLogout.setOnClickListener{
+            FirebaseAuth.getInstance().signOut()
+
+            val intent = Intent(this, FormLogin::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
+
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.BottomNavigationView)
 
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.item1 -> {
-                    val intent = Intent(this, quadras::class.java)
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     true
                 }
@@ -55,8 +60,9 @@ class conta : AppCompatActivity() {
                     true
                 }
                 R.id.item3 -> {
-                    val intent = Intent(this, conta::class.java)
-                    startActivity(intent)
+                    //val intent = Intent(this, conta::class.java)
+                   // startActivity(intent)
+                    Toast.makeText(this, "Voce já esta no login!!!", Toast.LENGTH_SHORT).show()
                     true
 
                 }
