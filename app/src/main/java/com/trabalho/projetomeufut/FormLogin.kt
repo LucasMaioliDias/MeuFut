@@ -91,7 +91,7 @@ class FormLogin : AppCompatActivity() {
                 if (task.isSuccessful) {
                     roberto.visibility = View.VISIBLE
                     Handler().postDelayed({
-                        val joh = Intent(this,menuQuadra ::class.java)
+                        val joh = Intent(this,MainActivity ::class.java)
                         startActivity(joh)
                     }, 3000)
                 }

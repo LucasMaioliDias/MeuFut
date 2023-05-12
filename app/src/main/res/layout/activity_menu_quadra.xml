@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background"
+        android:background="@color/cyangreen"
         android:orientation="vertical"
         tools:context=".menuQuadra">
 
@@ -37,12 +37,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/darkgreen"
+                app:cardBackgroundColor="@color/darckcyangreen"
                 app:cardCornerRadius="8dp"
                 >
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dia"
                     android:textSize="20sp"
@@ -51,8 +51,28 @@
                     android:gravity="center"
                     android:layout_gravity="center"/>
 
+                <TextView
+                    android:id="@+id/calendario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:gravity="center_vertical"
+                    android:text="calendario"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="10dp"
+
+
+                    />
+
             </androidx.cardview.widget.CardView>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
             <DatePicker
                 android:id="@+id/datePicker"
                 android:layout_width="match_parent"
@@ -60,6 +80,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@color/white"
+                android:visibility="gone"
 
                 style="@style/CustomDatePickerStyle"/>
 
@@ -67,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/darkgreen"
+                app:cardBackgroundColor="@color/darckcyangreen"
                 app:cardCornerRadius="8dp"
                 >
 
@@ -90,8 +111,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@color/white"
-                android:timePickerMode="spinner"
-                />
+                android:timePickerMode="spinner" />
 
         </LinearLayout>
 
@@ -102,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="Cadastrar"
-        android:textColor="@color/darkgreen"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -110,6 +130,17 @@
         app:layout_constraintTop_toBottomOf="@+id/linear"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="VisualLintButtonSize" />
+
+        <Button
+            android:id="@+id/teste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/btnMarcar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.179"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear"
+            app:layout_constraintVertical_bias="1.0" />
 
 
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -28,18 +29,14 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.item1 -> {
-                    val intent = Intent(this, quadras::class.java)
-                    startActivity(intent)
+                    //val intent = Intent(this, quadras::class.java)
+                    //startActivity(intent)
+                    Toast.makeText(this, "Voce ja esta no menu!!!", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.item2 -> {
-                    // Ação para o item 2
-                    FirebaseAuth.getInstance().signOut()
-
-                    val intent = Intent(this, FormLogin::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    val intent = Intent(this, menuQuadra::class.java)
                     startActivity(intent)
-                    finish()
                     true
                 }
                 R.id.item3 -> {

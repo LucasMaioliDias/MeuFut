@@ -1,17 +1,24 @@
 package com.trabalho.projetomeufut
 
+import CardViewAdapter
+import android.graphics.Rect
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
 class menuQuadra : AppCompatActivity() {
-
+    private lateinit var teste: Button
+    private lateinit var calendario: TextView
     private lateinit var btnMarcar: Button
     private lateinit var datePicker: DatePicker
     private lateinit var timePicker: TimePicker
@@ -27,6 +34,44 @@ class menuQuadra : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_quadra)
+
+
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager = layoutManager
+
+
+        val items = listOf("1", "2", "3", "4", "5","6","7") // Sua lista de números
+        val textAbove = listOf("Seg","Ter","Qua","Qui","Sex","Sab","Dom") // Texto acima do número
+        val textBelow = "Maio" // Texto abaixo do número
+
+        val adapter = CardViewAdapter(items, textAbove, textBelow)
+        recyclerView.adapter = adapter
+
+
+
+
+
+
+
+
+        calendario = findViewById(R.id.calendario)
+        calendario.setOnClickListener {
+            if (datePicker.visibility == View.GONE) {
+                datePicker.visibility = View.VISIBLE
+                recyclerView.visibility = View.GONE
+            } else {
+                datePicker.visibility = View.GONE
+                recyclerView.visibility = View.VISIBLE
+            }
+        }
+
+
+
+
+
+
+
 
         btnMarcar = findViewById(R.id.btnMarcar)
         datePicker = findViewById(R.id.datePicker)
@@ -98,6 +143,13 @@ class menuQuadra : AppCompatActivity() {
             .addOnFailureListener { e ->
                 Log.d("db_error", "erro ao obter o documento do usuário: ${e.message}")
             }
+    }
+
+    class HorizontalMarginItemDecoration(private val margin: Int) : RecyclerView.ItemDecoration() {
+        override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+            super.getItemOffsets(outRect, view, parent, state)
+            outRect.right = margin
+        }
     }
 
 
