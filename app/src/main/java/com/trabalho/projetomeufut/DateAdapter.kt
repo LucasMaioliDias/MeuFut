@@ -1,3 +1,4 @@
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -5,13 +6,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.trabalho.projetomeufut.R
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat.startActivity
+import com.trabalho.projetomeufut.menuQuadra
 
-
-
-
-
-class CardViewAdapter(private val items: List<String>, private val textAbove: List<String>, private val textBelow: String) :
-    RecyclerView.Adapter<CardViewAdapter.ViewHolder>() {
+class CardViewAdapter(
+    private val items: List<String>,
+    private val textAbove: List<String>,
+    private val textBelow: String,
+    private val onItemClickListener: ((String) -> Unit)? = null
+) : RecyclerView.Adapter<CardViewAdapter.ViewHolder>() {
     private var selectedItem = RecyclerView.NO_POSITION
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,12 +35,18 @@ class CardViewAdapter(private val items: List<String>, private val textAbove: Li
         }
 
         holder.itemView.setOnClickListener {
-            selectedItem = holder.adapterPosition
-            notifyDataSetChanged()
+            val position = holder.adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                selectedItem = position
+                notifyDataSetChanged()
+
+                val selectedDate = items[position] + " " + textBelow
+                onItemClickListener?.invoke(selectedDate)
+                
+
+            }
         }
-
-
-}
+    }
 
     override fun getItemCount(): Int {
         return items.size

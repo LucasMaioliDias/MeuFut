@@ -7,8 +7,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class Adpter(
+
     private val myList:List<String>,
-    private val myDescriptions: List<String>
+    private val myDescriptions: List<String>,
+    val nameSelect:(String) -> Unit
 
 ):RecyclerView.Adapter<Adpter.MyViewHolder>() {
 
@@ -27,6 +29,8 @@ class Adpter(
         val description = myDescriptions[position]
         holder.textname.text = name
         holder.descricao.text = description
+
+        holder.textname.setOnClickListener{nameSelect(name)}
 
     }
 class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {

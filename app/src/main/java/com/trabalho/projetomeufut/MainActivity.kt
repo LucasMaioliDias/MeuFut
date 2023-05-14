@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.BottomNavigationView)
 
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
@@ -60,7 +61,13 @@ class MainActivity : AppCompatActivity() {
     private fun initRecyclerView(){
         binding.recycleview.layoutManager = LinearLayoutManager(this)
         binding.recycleview.setHasFixedSize(true)
-        binding.recycleview.adapter = Adpter(getlist(),getdescription())
+        binding.recycleview.adapter = Adpter(getlist(),getdescription()){name ->
+            val intent = Intent(this, menuQuadra::class.java)
+            intent.putExtra("nomeQuadra",name)
+            startActivity(intent)
+
+
+        }
 
 
     }

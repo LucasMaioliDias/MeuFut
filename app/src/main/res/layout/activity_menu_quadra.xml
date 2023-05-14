@@ -24,9 +24,10 @@
             tools:ignore="MissingConstraints">
 
             <TextView
+                android:id="@+id/agendamento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Agendamento"
+
                 android:textSize="25sp"
                 style="@style/text"
                 android:layout_margin="25dp"
@@ -104,14 +105,12 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TimePicker
-                android:id="@+id/timePicker"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@color/white"
-                android:timePickerMode="spinner" />
+                android:orientation="horizontal" />
+
 
         </LinearLayout>
 
@@ -121,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="Cadastrar"
+        android:text="marcar"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -131,16 +130,19 @@
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="VisualLintButtonSize" />
 
-        <Button
-            android:id="@+id/teste"
+
+
+        <TextView
+            android:id="@+id/celular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/btnMarcar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.179"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linear"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnMarcar"
+            android:textStyle="bold"
+            android:textSize="100dp"
+            android:textColor="@color/purple_200"/>
+
 
 
 
