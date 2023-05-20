@@ -14,6 +14,54 @@
         android:orientation="vertical"
         tools:context=".menuQuadra">
 
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/darckcyangreen"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+            <TextView
+                android:id="@+id/agendamento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center" />
+            </androidx.cardview.widget.CardView>
+
+        <View
+            android:id="@+id/viewimg"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            android:layout_marginTop="20dp"/>
+
+        <ImageView
+            android:id="@+id/imagagendamento"
+            android:layout_width="350dp"
+            android:layout_height="180dp"
+            android:layout_margin="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewimg"
+            app:layout_constraintEnd_toEndOf="@id/viewimg"
+            app:layout_constraintStart_toStartOf="@id/viewimg"
+            app:layout_constraintTop_toTopOf="@+id/viewimg" />
+
+
+
+
+
         <LinearLayout
             android:id="@+id/linear"
             android:layout_width="match_parent"
@@ -21,18 +69,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@+id/viewimg">
 
-            <TextView
-                android:id="@+id/agendamento"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:textSize="25sp"
-                style="@style/text"
-                android:layout_margin="25dp"
-                android:gravity="center"
-                tools:ignore="HardcodedText" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"

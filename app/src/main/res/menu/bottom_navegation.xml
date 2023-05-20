@@ -8,8 +8,8 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/item2"
-        android:icon="@drawable/ic_heart"
-        android:title="Favoritos"
+        android:icon="@drawable/ic_clipboard"
+        android:title="Agendadas"
         app:showAsAction="ifRoom" />
 
     <item

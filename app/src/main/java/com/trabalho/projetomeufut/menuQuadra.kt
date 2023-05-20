@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.DatePicker
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -29,7 +30,7 @@ class menuQuadra : AppCompatActivity() {
     private lateinit var datePicker: DatePicker
     private lateinit var agendamento: TextView
     private lateinit var celular: TextView
-
+    private lateinit var imgagendamento:ImageView
     private lateinit var recyclerView: RecyclerView
     private lateinit var recyclerView2: RecyclerView
     private lateinit var adapter: CardViewAdapter
@@ -54,6 +55,12 @@ class menuQuadra : AppCompatActivity() {
         val nomequadra = intent.extras
         val nome = nomequadra?.getString("nomeQuadra")
         agendamento.text = nome
+
+        val imgagendamento = findViewById<ImageView>(R.id.imagagendamento)
+        val img = intent.getIntExtra("imagemQuadra", 0)
+        imgagendamento.setImageResource(img)
+
+
 
         //-----------------------------------------------------------//
 
@@ -146,47 +153,7 @@ class menuQuadra : AppCompatActivity() {
     }
 
 
-    /* private fun SalvarAgendamento(data: String, time: String, name: String) {
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        val userID = currentUser?.uid
 
-        // Verifica se o usuário está autenticado
-        if (userID != null) {
-            val nomequadra = intent.extras
-            val nome = nomequadra?.getString("nomeQuadra")
-            val database = FirebaseDatabase.getInstance()
-            val agendamentoRef = database.reference.child("agendamento")
-            val novoAgendamentoRef = agendamentoRef.push()
-            val name = nome
-            val userName = "Nome do usuário" // Substitua pela lógica correta para obter o nome do usuário
-            val userTelefone = "Telefone do usuário" // Substitua pela lógica correta para obter o telefone do usuário
-
-            val agendamento = hashMapOf(
-                "nomeQuadra" to name,
-                "dia" to data,
-                "tempo" to time,
-                "nomeUsuario" to userName,
-                "telefoneUsuario" to userTelefone
-
-            )
-
-            novoAgendamentoRef.setValue(agendamento)
-                .addOnSuccessListener {
-                    Toast.makeText(
-                        this,
-                        "Agendamento salvo com sucesso!",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(
-                        this,
-                        "Erro ao salvar o agendamento!",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-        }
-    }*/
 
 
     private fun SalvarAgendamento(selectedDate: String, selectedTime: List<String>, name: String) {
@@ -199,6 +166,8 @@ class menuQuadra : AppCompatActivity() {
             .get()
             .addOnSuccessListener { documentSnapshot ->
                 val userName = documentSnapshot.getString("nome")
+                val telefone = documentSnapshot.getString("telefone")
+
 
                 val agendamento = hashMapOf(
                     "nomeQuadra" to name,
@@ -206,7 +175,8 @@ class menuQuadra : AppCompatActivity() {
                     "hora" to selectedTime,
                     "usuario" to hashMapOf(
                         "email" to userEmail,
-                        "nome" to userName
+                        "nome" to userName,
+                        "telefone" to telefone
                     )
                 )
 

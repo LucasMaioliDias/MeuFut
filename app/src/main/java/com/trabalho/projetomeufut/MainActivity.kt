@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.item2 -> {
-                    val intent = Intent(this, menuQuadra::class.java)
+                    val intent = Intent(this, quadrasalugadas::class.java)
                     startActivity(intent)
                     true
                 }
@@ -58,51 +58,39 @@ class MainActivity : AppCompatActivity() {
         initRecyclerView()
     }
 
-    private fun initRecyclerView(){
+    private fun initRecyclerView() {
         binding.recycleview.layoutManager = LinearLayoutManager(this)
         binding.recycleview.setHasFixedSize(true)
-        binding.recycleview.adapter = Adpter(getlist(),getdescription()){name ->
+        binding.recycleview.adapter = Adpter(getlist(), getdescription(), getImageList()) { name ->
             val intent = Intent(this, menuQuadra::class.java)
-            intent.putExtra("nomeQuadra",name)
+            val position = getlist().indexOf(name) // Encontra a posição do item selecionado
+            val image = getImageList()[position] // Obtém a imagem correspondente
+            intent.putExtra("nomeQuadra", name)
+            intent.putExtra("imagemQuadra", image)
             startActivity(intent)
-
-
         }
-
-
     }
 
     private fun getlist() = listOf(
         "Quadra da Amizade",
         "Quadra do Sol Nascente",
-        "Quadra Esportiva São Jorge",
-        "Quadra dos Amigos Unidos",
-        "Quadra do Recanto Esportivo",
-        "Quadra dos Craques",
-        "Quadra da Vitória",
-        "Quadra do Esporte Total",
-        "Quadra do Futuro",
-        "Quadra do Sucesso",
-        "Quadra do Esporte Total",
-        "Quadra do Futuro",
-        "Quadra do Sucesso",
+
     )
 
     private fun getdescription() = listOf(
         "Onde a amizade é celebrada em cada partida.",
         "Jogue seu esporte favorito nesta quadra.",
-        "Onde você pode se sentir como um campeão.",
-        "Reúna seus amigos nesta quadra de diversão.",
-        "Um local tranquilo e agradável para praticar esportes.",
-        "Os verdadeiros craques mostrarem seu talento.",
-        "Experimente a sensação de vitória a cada jogo.",
-        "Essa é a proposta da quadra do Esporte Total.",
-        "Projetada para os esportes do futuro.",
-        "Escreva sua história de sucesso no mundo dos esportes.",
-        "Essa é a proposta da quadra do Esporte Total.",
-        "Projetada para os esportes do futuro.",
-        "Escreva sua história de sucesso no mundo dos esportes.",
+
     )
 
+    private fun getImageList() = listOf(
+
+        R.drawable.img1,
+        R.drawable.img,
+
+
+
+
+    )
 
 }

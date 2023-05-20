@@ -15,6 +15,9 @@
         android:theme="@style/Theme.ProjetoMeuFut"
         tools:targetApi="31">
         <activity
+            android:name=".quadrasalugadas"
+            android:exported="false" />
+        <activity
             android:name=".telainicial"
             android:exported="true">
             <intent-filter>
