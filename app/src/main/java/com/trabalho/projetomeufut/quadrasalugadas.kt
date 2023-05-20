@@ -5,6 +5,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,10 +22,16 @@ class quadrasalugadas : AppCompatActivity() {
     private lateinit var textViewNoAgendamentos: TextView
     private lateinit var agendado: RecyclerView
     private lateinit var adapter: ItemAgendamentoAdapter
+    private lateinit var imagequadra : ImageView
+    private lateinit var icon : ImageView
+    private lateinit var minhaView : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quadrasalugadas)
+
+
+
 
         textViewNoAgendamentos = findViewById(R.id.textViewNoAgendamentos)
 
@@ -35,6 +44,8 @@ class quadrasalugadas : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         agendado.layoutManager = layoutManager
+
+
 
 
 

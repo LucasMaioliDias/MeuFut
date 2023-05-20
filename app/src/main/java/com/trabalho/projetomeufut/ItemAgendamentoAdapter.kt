@@ -1,6 +1,8 @@
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.trabalho.projetomeufut.AgendamentoItem
@@ -19,6 +21,7 @@ class ItemAgendamentoAdapter(private val dataList: List<AgendamentoItem>) : Recy
         holder.textViewNome.text = item.nome
         holder.textViewData.text = item.data
         holder.textViewhora.text = item.hora
+
     }
 
     override fun getItemCount(): Int {
@@ -29,7 +32,9 @@ class ItemAgendamentoAdapter(private val dataList: List<AgendamentoItem>) : Recy
         val textViewNome: TextView = itemView.findViewById(R.id.textNomeQuadraAgen)
         val textViewData: TextView = itemView.findViewById(R.id.textDataAgen)
         val textViewhora: TextView = itemView.findViewById(R.id.textHoraAgen)
+
     }
+
 
 
 }

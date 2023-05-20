@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/cyangreen"
     android:padding="16dp">
 
     <androidx.cardview.widget.CardView
@@ -15,6 +16,7 @@
         app:cardElevation="8dp">
 
         <LinearLayout
+            android:id="@+id/minhaView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -42,14 +44,14 @@
                 android:textSize="16sp" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imagequadra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
                  />
 
             <ImageView
-                android:id="@+id/expandIcon"
+                android:id="@+id/iconimg"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"

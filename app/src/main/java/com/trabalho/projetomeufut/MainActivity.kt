@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import com.trabalho.projetomeufut.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var search: SearchView
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +24,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
 
-
-
+        search = findViewById(R.id.search)
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.BottomNavigationView)
 
@@ -61,6 +62,10 @@ class MainActivity : AppCompatActivity() {
     private fun initRecyclerView() {
         binding.recycleview.layoutManager = LinearLayoutManager(this)
         binding.recycleview.setHasFixedSize(true)
+
+
+
+
         binding.recycleview.adapter = Adpter(getlist(), getdescription(), getImageList()) { name ->
             val intent = Intent(this, menuQuadra::class.java)
             val position = getlist().indexOf(name) // Encontra a posição do item selecionado
@@ -74,19 +79,29 @@ class MainActivity : AppCompatActivity() {
     private fun getlist() = listOf(
         "Quadra da Amizade",
         "Quadra do Sol Nascente",
+        "Quadra dos Campeões",
+        "Arena Padel Master",
+        "Padel ProPlay",
 
     )
 
     private fun getdescription() = listOf(
         "Onde a amizade é celebrada em cada partida.",
         "Jogue seu esporte favorito nesta quadra.",
+        "Jogue seu esporte  quadra moderna",
+        "Onde a amizade é celebrada em cada partida.",
+        "Jogue seu esporte favorito nesta quadra.",
+
 
     )
 
     private fun getImageList() = listOf(
 
-        R.drawable.img1,
-        R.drawable.img,
+        R.drawable.quadra1,
+        R.drawable.quadra2,
+        R.drawable.quadra3,
+        R.drawable.quadra4,
+        R.drawable.quadra5,
 
 
 
